@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abogado Juan Pérez</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <h1 class="logo">Abogado Juan Pérez</h1>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre Mí</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="container fade-in" data-scroll>
+      <h2>Tu Abogado de Confianza</h2>
+      <p>Ofreciendo soluciones legales personalizadas y profesionales con experiencia y compromiso.</p>
+      <button onclick="document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' })">
+        Agenda tu Consulta
+      </button>
+    </div>
+  </section>
+
+  <!-- Sobre Mí -->
+  <section class="about" id="sobre-mi" data-scroll>
+    <div class="container">
+      <h2>Sobre Mí</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://placehold.co/400x400?text=Perfil+del+Abogado" alt="Perfil del abogado" />
+        </div>
+        <div class="about-text">
+          <p>
+            Soy el Abogado Juan Pérez, con más de 15 años de experiencia en derecho civil, penal y corporativo.
+            Mi enfoque se basa en brindar asesoría legal clara, honesta y efectiva a cada uno de mis clientes.
+          </p>
+          <p>
+            Me dedico a entender las necesidades únicas de cada caso para ofrecer soluciones prácticas y orientadas al resultado.
+            Mi ética profesional, integridad y compromiso son la base de mi trabajo diario.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="services" id="servicios" data-scroll>
+    <div class="container">
+      <h2>Servicios Legales</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Derecho Civil</h3>
+          <p>Asesoría y representación en disputas contractuales, propiedad, familia, herencias y responsabilidad civil.</p>
+        </div>
+        <div class="service-card">
+          <h3>Derecho Penal</h3>
+          <p>Defensa en casos penales, audiencias preliminares, apelaciones y protección de derechos fundamentales.</p>
+        </div>
+        <div class="service-card">
+          <h3>Derecho Corporativo</h3>
+          <p>Constitución de empresas, contratos mercantiles, cumplimiento normativo y fusiones y adquisiciones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contact" id="contacto" data-scroll>
+    <div class="container">
+      <h2>Contáctame</h2>
+      <form class="contact-form">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" placeholder="Tu nombre completo" required />
+
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" placeholder="tu@email.com" required />
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" rows="5" placeholder="Escríbeme tu consulta..." required></textarea>
+
+        <button type="submit">Enviar Mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h3>Abogado Juan Pérez</h3>
+      <p>Brindando asesoría legal de calidad desde 2008.</p>
+      <p>© 2025 Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script para animaciones -->
+  <script>
+    const sections = document.querySelectorAll("[data-scroll]");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
+    
