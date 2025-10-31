@@ -3,17 +3,740 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abogado Juan Pérez</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Juan Pérez - Abogado profesional con 15+ años de experiencia en derecho civil, penal y corporativo. Asesoría legal de calidad."/>
+  <meta name="keywords" content="abogado, asesoría legal, derecho civil, derecho penal, derecho corporativo, consulta legal"/>
+  <meta name="author" content="Abogado Juan Pérez"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Abogado Juan Pérez - Asesoría Legal Profesional"/>
+  <meta property="og:description" content="Soluciones legales personalizadas con 15+ años de experiencia"/>
+  <meta property="og:type" content="website"/>
+  
+  <title>Abogado Juan Pérez - Asesor Legal Profesional | 15+ Años Experiencia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Courier New', 'Courier', monospace;
+      color: #1a1a1a;
+      background: #f0f0f0;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ============ SPLASH SCREEN ============ */
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeOutSplash 0.6s ease-in-out 2.5s forwards;
+    }
+
+    @keyframes fadeOutSplash {
+      from {
+        opacity: 1;
+        visibility: visible;
+      }
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .splash-logo {
+      text-align: center;
+      animation: zoomInLogo 1s ease-out;
+    }
+
+    @keyframes zoomInLogo {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .splash-logo h1 {
+      font-size: 4rem;
+      color: #d4af37;
+      font-family: 'Courier New', 'Courier', monospace;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .splash-logo p {
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 2px;
+    }
+
+    .splash-line {
+      width: 100px;
+      height: 2px;
+      background: #d4af37;
+      margin: 1rem auto;
+      animation: expandLine 1.5s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+
+    @keyframes expandLine {
+      from {
+        width: 0;
+        opacity: 1;
+      }
+      to {
+        width: 100px;
+        opacity: 1;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ============ HEADER ============ */
+    header {
+      background: linear-gradient(to right, #1a1a3e 0%, #16213e 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      font-family: 'Courier New', 'Courier', monospace;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #d4af37;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 0.5rem;
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 1px;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #d4af37;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: #1a1a3e;
+        padding: 2rem 1rem;
+        gap: 1rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      nav ul.active {
+        max-height: 500px;
+      }
+
+      nav ul li a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+      }
+    }
+
+    /* ============ HERO SECTION ============ */
+    .hero {
+      background: linear-gradient(to right, rgba(26, 26, 62, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%),
+                  url('https://i.pinimg.com/736x/9f/36/00/9f360085e05a5a102bd9558c65fcbff0.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 150px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h2 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      font-weight: 300;
+    }
+
+    .hero button {
+      background: linear-gradient(to right, #d4af37 0%, #c9a227 100%);
+      color: #1a1a3e;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'Courier New', 'Courier', monospace;
+    }
+
+    .hero button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+    }
+
+    .hero button:active {
+      transform: translateY(-1px);
+    }
+
+    /* ============ ABOUT SECTION ============ */
+    .about {
+      padding: 100px 0;
+      background: #f0f0f0;
+      position: relative;
+    }
+
+    .about h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: #1a1a3e;
+      font-weight: 800;
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 2px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      animation: floatImage 3s ease-in-out infinite;
+    }
+
+    @keyframes floatImage {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+      transition: transform 0.3s ease;
+      border: 8px solid white;
+    }
+
+    .about-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      color: #333;
+      font-weight: 500;
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    /* Neomorfismo en texto */
+    .about-text {
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08),
+                  -0 -0 0 1px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e0e0e0;
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .about h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* ============ SERVICES SECTION ============ */
+    .services {
+      padding: 100px 0;
+      background: linear-gradient(to right, #1a1a3e 0%, #16213e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: rgba(212, 175, 55, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .services h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: #d4af37;
+      font-weight: 800;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 2px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border: 2px solid transparent;
+      position: relative;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      border-color: #d4af37;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #1a1a3e;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 1px;
+    }
+
+    .service-card p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      font-weight: 500;
+      font-family: 'Courier New', 'Courier', monospace;
+    }
+
+    /* ============ CONTACT SECTION ============ */
+    .contact {
+      padding: 100px 0;
+      background: #f0f0f0;
+    }
+
+    .contact h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: #1a1a3e;
+      font-weight: 800;
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 2px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+      animation: slideUp 0.8s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #1a1a3e;
+      font-size: 1rem;
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 1px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid #d0d0d0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Courier New', 'Courier', monospace;
+      transition: all 0.3s ease;
+      background: #fafafa;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #1a1a3e;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(26, 26, 62, 0.1);
+    }
+
+    .contact-form button {
+      width: 100%;
+      background: linear-gradient(to right, #1a1a3e 0%, #16213e 100%);
+      color: #d4af37;
+      padding: 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'Courier New', 'Courier', monospace;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: linear-gradient(to right, #0d0d1a 0%, #1a1a3e 100%);
+      color: #e0e0e0;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    footer h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #d4af37;
+      font-family: 'Courier New', 'Courier', monospace;
+      letter-spacing: 1px;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+      font-family: 'Courier New', 'Courier', monospace;
+    }
+
+    /* ============ SCROLL ANIMATIONS ============ */
+    [data-scroll] {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-scroll].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+      nav {
+        gap: 1rem;
+      }
+
+      nav ul {
+        gap: 1.5rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 100px 0;
+        min-height: 400px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .services h2,
+      .about h2,
+      .contact h2 {
+        font-size: 2rem;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      [data-scroll] {
+        transform: translateY(30px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      .service-card {
+        padding: 1.5rem;
+      }
+    }
+
+    /* ============ RETRO AESTHETIC ============ */
+    .retro-accent {
+      background: linear-gradient(to right, #1a1a3e 0%, #d4af37 50%, #1a1a3e 100%);
+      height: 4px;
+      width: 60px;
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Splash Screen -->
+  <div class="splash-screen">
+    <div class="splash-logo">
+      <h1>⚖️</h1>
+      <p class="splash-line"></p>
+      <p>ABOGADO JUAN PÉREZ</p>
+      <p style="font-size: 0.9rem; margin-top: 1rem; letter-spacing: 1px;">Asesoría Legal Profesional</p>
+    </div>
+  </div>
 
   <!-- Header -->
   <header>
     <div class="container">
       <nav>
-        <h1 class="logo">Abogado Juan Pérez</h1>
-        <ul>
+        <h1 class="logo">⚖️ J.P. LEGAL</h1>
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="navMenu">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#sobre-mi">Sobre Mí</a></li>
           <li><a href="#servicios">Servicios</a></li>
@@ -25,11 +748,12 @@
 
   <!-- Hero Section -->
   <section class="hero" id="inicio">
-    <div class="container fade-in" data-scroll>
+    <div class="container" data-scroll>
       <h2>Tu Abogado de Confianza</h2>
-      <p>Ofreciendo soluciones legales personalizadas y profesionales con experiencia y compromiso.</p>
+      <div class="retro-accent"></div>
+      <p>Ofreciendo soluciones legales personalizadas y profesionales con 15+ años de experiencia y compromiso total.</p>
       <button onclick="document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' })">
-        Agenda tu Consulta
+        📞 Agenda tu Consulta
       </button>
     </div>
   </section>
@@ -38,18 +762,20 @@
   <section class="about" id="sobre-mi" data-scroll>
     <div class="container">
       <h2>Sobre Mí</h2>
+      <div class="retro-accent" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);"></div>
       <div class="about-content">
         <div class="about-image">
-          <img src="https://placehold.co/400x400?text=Perfil+del+Abogado" alt="Perfil del abogado" />
+          <img src="https://i.pinimg.com/736x/d9/2a/16/d92a16812d0866a28d668b45e8138347.jpg" alt="Perfil profesional del Abogado Juan Pérez con experiencia legal" loading="lazy"/>
         </div>
         <div class="about-text">
           <p>
-            Soy el Abogado Juan Pérez, con más de 15 años de experiencia en derecho civil, penal y corporativo.
-            Mi enfoque se basa en brindar asesoría legal clara, honesta y efectiva a cada uno de mis clientes.
+            Soy el <strong>Abogado Juan Pérez</strong>, con más de 15 años de experiencia comprobada en derecho civil, penal y corporativo. Mi enfoque se basa en brindar asesoría legal clara, honesta y efectiva a cada uno de mis clientes.
           </p>
           <p>
-            Me dedico a entender las necesidades únicas de cada caso para ofrecer soluciones prácticas y orientadas al resultado.
-            Mi ética profesional, integridad y compromiso son la base de mi trabajo diario.
+            Me dedico a entender las necesidades únicas de cada caso para ofrecer soluciones prácticas y orientadas al resultado. Mi ética profesional, integridad y compromiso son la base de mi trabajo diario en la práctica legal.
+          </p>
+          <p>
+            Cada cliente merece representación de calidad y soluciones legales que protejan sus intereses y derechos fundamentales.
           </p>
         </div>
       </div>
@@ -60,18 +786,19 @@
   <section class="services" id="servicios" data-scroll>
     <div class="container">
       <h2>Servicios Legales</h2>
+      <div class="retro-accent" style="background: linear-gradient(90deg, #ffd700 0%, #ff6b6b 100%);"></div>
       <div class="services-grid">
         <div class="service-card">
-          <h3>Derecho Civil</h3>
-          <p>Asesoría y representación en disputas contractuales, propiedad, familia, herencias y responsabilidad civil.</p>
+          <h3>⚖️ Derecho Civil</h3>
+          <p>Asesoría y representación en disputas contractuales, propiedad, familia, herencias y responsabilidad civil con expertise.</p>
         </div>
         <div class="service-card">
-          <h3>Derecho Penal</h3>
-          <p>Defensa en casos penales, audiencias preliminares, apelaciones y protección de derechos fundamentales.</p>
+          <h3>🛡️ Derecho Penal</h3>
+          <p>Defensa profesional en casos penales, audiencias preliminares, apelaciones y protección de derechos fundamentales garantizados.</p>
         </div>
         <div class="service-card">
-          <h3>Derecho Corporativo</h3>
-          <p>Constitución de empresas, contratos mercantiles, cumplimiento normativo y fusiones y adquisiciones.</p>
+          <h3>📊 Derecho Corporativo</h3>
+          <p>Constitución de empresas, contratos mercantiles, cumplimiento normativo y fusiones y adquisiciones con asesoramiento integral.</p>
         </div>
       </div>
     </div>
@@ -81,17 +808,21 @@
   <section class="contact" id="contacto" data-scroll>
     <div class="container">
       <h2>Contáctame</h2>
-      <form class="contact-form">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" placeholder="Tu nombre completo" required />
+      <div class="retro-accent" style="background: linear-gradient(90deg, #667eea 0%, #ffd700 100%);"></div>
+      <form class="contact-form" name="contact-form">
+        <label for="name">Nombre Completo *</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre completo" required aria-label="Tu nombre completo"/>
 
-        <label for="email">Correo Electrónico</label>
-        <input type="email" id="email" placeholder="tu@email.com" required />
+        <label for="email">Correo Electrónico *</label>
+        <input type="email" id="email" name="email" placeholder="tu@email.com" required aria-label="Tu correo electrónico"/>
 
-        <label for="message">Mensaje</label>
-        <textarea id="message" rows="5" placeholder="Escríbeme tu consulta..." required></textarea>
+        <label for="phone">Teléfono</label>
+        <input type="tel" id="phone" name="phone" placeholder="+34 XXX XXX XXX" aria-label="Tu número de teléfono"/>
 
-        <button type="submit">Enviar Mensaje</button>
+        <label for="message">Consulta Legal *</label>
+        <textarea id="message" name="message" rows="5" placeholder="Escríbeme tu consulta o el tipo de asesoría que necesitas..." required aria-label="Tu consulta legal"></textarea>
+
+        <button type="submit">Enviar Consulta</button>
       </form>
     </div>
   </section>
@@ -99,14 +830,33 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <h3>Abogado Juan Pérez</h3>
-      <p>Brindando asesoría legal de calidad desde 2008.</p>
-      <p>© 2025 Todos los derechos reservados.</p>
+      <h3>⚖️ Abogado Juan Pérez</h3>
+      <p><strong>Asesoría Legal Profesional desde 2008</strong></p>
+      <p>Especialista en Derecho Civil, Penal y Corporativo</p>
+      <p style="margin-top: 1.5rem; opacity: 0.7;">© 2025 Todos los derechos reservados. Abogado Juan Pérez - Asesoría Legal Profesional</p>
     </div>
   </footer>
 
-  <!-- Script para animaciones -->
+  <!-- Script para animaciones y funcionalidad -->
   <script>
+    // Menú desplegable
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer click en un link
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Intersection Observer para animaciones de scroll
     const sections = document.querySelectorAll("[data-scroll]");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -114,12 +864,39 @@
           entry.target.classList.add("visible");
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
 
     sections.forEach(section => {
       observer.observe(section);
     });
+
+    // Formulario de contacto
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // Validación básica
+      if (name && email && message) {
+        alert('Gracias ' + name + ', tu consulta ha sido recibida. Me pondré en contacto pronto.');
+        form.reset();
+      } else {
+        alert('Por favor, completa todos los campos requeridos.');
+      }
+    });
+
+    // Smooth scroll mejorado
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
   </script>
 </body>
 </html>
-    
